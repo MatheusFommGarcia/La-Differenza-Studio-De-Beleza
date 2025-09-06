@@ -11,29 +11,37 @@
 <body>
    <header>
     <a href="#" class="logo">La Differenza Studio de Beleza</a>
+    <!-- Menu responsivo (hamburguer) -->
+    <nav class="nav-responsive">
+        <div class="nav-header">
+            <span class="nav-title">Menu</span>
+        </div>
+        <a href="#home" class="nav-item"><i class='bx bx-home'></i>Início</a>
+        <a href="#services" class="nav-item"><i class='bx bx-cut'></i>Serviços</a>
+        <a href="#portfolio" class="nav-item"><i class='bx bx-image'></i>Trabalhos</a>
+        <a href="#contact" class="nav-item"><i class='bx bx-envelope'></i>Contato</a>
+        <a href="#about" class="nav-item"><i class='bx bx-info-circle'></i>Sobre Nós</a>
+        <div class="theme-switch-container">
+            <label class="theme-switch">
+                <input type="checkbox" id="toggle-theme">
+                <span class="slider"></span>
+                <span class="theme-label" id="theme-label">Modo Escuro</span>
+            </label>
+        </div>
+    </nav>
+    <!-- Botão hamburguer -->
+    <button class="menu-hamburguer" aria-label="Abrir menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </button>
+</header>
 
-    <div class="nav">
-        <a href="#home">Início</a>
-        <a href="#services">Serviços</a>
-        <a href="#portfolio">Trabalhos</a>
-        <a href="#contact">Contato</a>
-        <a href="#about">Sobre Nós</a>
-    </div>
-
-    <div class="nav-responsive">
-        <a href="#home">Início</a>
-        <a href="#services">Serviços</a>
-        <a href="#portfolio">Trabalhos</a>
-        <a href="#contact">Contato</a>
-        <a href="#about">Sobre Nós</a>
-    </div>
-
-    <div class="menu-hamburguer">
-        <div class="bar1"></div>
-        <div class="bar2"></div>
-        <div class="bar3"></div>
-    </div>
-    </header> 
+<!-- Suas seções continuam normalmente abaixo... -->
+<!-- ... -->
+<script src="script.js"></script>
+</body>
+</html>
 
     <!-- Home Section -->
     <section class="home" id="home">

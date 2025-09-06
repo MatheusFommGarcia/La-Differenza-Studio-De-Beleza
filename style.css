@@ -627,3 +627,258 @@ footer {
   display: block;
   margin: 0 auto;     /* centraliza no mobile */
 }
+
+/* Overlay */
+.menu-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  backdrop-filter: blur(2px);
+  opacity: 0; visibility: hidden;
+  transition: 0.3s ease;
+  z-index: 999;
+}
+.menu-overlay.active { opacity: 1; visibility: visible; }
+
+/* Menu hambúrguer */
+.menu-hamburguer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40px; height: 40px;
+  background: none; border: none;
+  cursor: pointer; padding: 0.5rem;
+  border-radius: 8px;
+  z-index: 1002;
+}
+.bar {
+  width: 25px; height: 3px;
+  background-color: var(--text-black);
+  margin: 3px 0; border-radius: 2px;
+  transition: 0.3s ease;
+}
+.menu-hamburguer.active .bar:nth-child(1) {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+.menu-hamburguer.active .bar:nth-child(2) { opacity: 0; }
+.menu-hamburguer.active .bar:nth-child(3) {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* Menu lateral atualizado */
+.nav-responsive {
+  position: fixed;
+  top: 0; right: -100%;
+  width: 320px; height: 100vh;
+  background: var(--pure-white);
+  transition: right 0.4s ease;
+  z-index: 1001;
+  display: flex; flex-direction: column;
+}
+.nav-responsive.active { right: 0; }
+
+.nav-header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+.nav-title { font-size: 1.2rem; font-weight: 600; color: var(--primary-gold); }
+
+.nav-close {
+  background: none; border: none;
+  font-size: 1.5rem; cursor: pointer;
+}
+
+/* Itens menu lateral */
+.nav-item {
+  display: flex; align-items: center; gap: 1rem;
+  padding: 1rem 1.5rem;
+  color: var(--text-black);
+  font-weight: 500;
+  transition: 0.3s ease;
+}
+.nav-item:hover { background-color: rgba(212, 175, 55, 0.1); color: var(--primary-gold); }
+
+/* Tema switch */
+.theme-switch-container {
+  margin-top: 2rem; padding-top: 2rem;
+  border-top: 1px solid rgba(0,0,0,0.1);
+}
+.theme-switch { display: flex; align-items: center; gap: 1rem; cursor: pointer; }
+.theme-switch input { display: none; }
+.slider {
+  width: 50px; height: 26px; border-radius: 26px;
+  background: #ccc; position: relative; transition: 0.3s;
+}
+.slider::before {
+  content: ""; position: absolute; top: 2px; left: 2px;
+  width: 22px; height: 22px; border-radius: 50%; background: #fff;
+  transition: 0.3s;
+}
+input:checked + .slider { background: var(--primary-gold); }
+input:checked + .slider::before { transform: translateX(24px); }
+.theme-label { font-weight: 500; color: var(--text-black); }
+
+/* Tema escuro */
+body.light {
+  --pure-white: #1a1a1a;
+  --text-black: #fff;
+  --light-gray: #2d2d2d;
+  --primary-gold: #e0c060;
+}
+body.light header { background: rgba(26,26,26,0.95); }
+
+/* ...existing code... */
+.nav-responsive {
+    display: none;
+    /* outros estilos para o menu responsivo */
+}
+
+.nav-responsive.active {
+    display: flex; /* ou block, conforme seu layout */
+    /* outros estilos para mostrar o menu */
+}
+
+.menu-hamburguer.active .bar {
+    background: #333; /* exemplo de animação */
+}
+/* ...existing code... */
+
+/* ...existing code... */
+
+/* Menu lateral atualizado */
+.nav-responsive {
+  position: fixed;
+  top: 0; right: -100%;
+  width: 320px; height: 100vh;
+  background: var(--pure-white);
+  transition: right 0.4s cubic-bezier(.4,0,.2,1);
+  z-index: 1001;
+  display: flex; flex-direction: column;
+  padding-top: 2rem;
+}
+.nav-responsive.active { right: 0; }
+
+.nav-header {
+  padding: 0 2rem 1.5rem 2rem;
+  border-bottom: 1px solid #eee;
+}
+.nav-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--primary-gold);
+}
+
+.nav-item {
+  display: block;
+  padding: 1rem 2rem;
+  color: var(--primary-gold); /* Sempre dourado */
+  font-size: 1.2rem;
+  font-weight: 600;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+}
+.nav-item:hover,
+.nav-item.active {
+  color: var(--dark-gold);
+  border-bottom: 2px solid var(--primary-gold);
+  background: rgba(212, 175, 55, 0.07);
+}
+
+/* Tema switch reposicionado */
+.theme-switch-container {
+  margin-top: 2rem;
+  padding: 1.5rem 2rem 0 2rem;
+  border-top: 1px solid #eee;
+  /* Remove margin-bottom para não empurrar para baixo */
+}
+
+/* ...existing code... */
+
+/* Remove menu tradicional do cabeçalho */
+.nav {
+  display: none !important;
+}
+
+/* ===== MENU HAMBÚRGUER ===== */
+
+/* Itens do menu */
+.nav-item {
+  display: block;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+}
+
+/* Texto preto no claro */
+body:not(.light) .nav-item {
+  color: #000;
+}
+
+/* Texto branco no escuro */
+body.light .nav-item {
+  color: #fff;
+}
+
+/* Hover e ativo */
+.nav-item:hover,
+.nav-item.active {
+  color: #d4af37; /* dourado */
+  border-bottom: 2px solid #d4af37;
+  background: rgba(212,175,55,0.07);
+}
+
+/* Switch de tema dentro do menu */
+.theme-switch-container {
+  margin-top: 1rem; /* fica logo abaixo dos links */
+  padding: 1rem 2rem;
+  border-top: 1px solid #eee;
+}
+
+.theme-switch {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+}
+
+.theme-switch input { display: none; }
+
+.slider {
+  width: 50px; height: 26px;
+  border-radius: 26px;
+  background: #ccc;
+  position: relative;
+  transition: 0.3s;
+}
+.slider::before {
+  content: "";
+  position: absolute;
+  top: 2px; left: 2px;
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: #fff;
+  transition: 0.3s;
+}
+input:checked + .slider { background: #d4af37; }
+input:checked + .slider::before { transform: translateX(24px); }
+
+.theme-label {
+  font-weight: 500;
+  color: #000; /* claro */
+}
+body.light .theme-label {
+  color: #fff; /* escuro */
+}
